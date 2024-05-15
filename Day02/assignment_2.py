@@ -23,8 +23,5 @@ while guessed_number != comp_number:
     if guessed_number == comp_number:
         print(" You guessed the exact number")
         break;
-<<<<<<< HEAD
 print (f"You needed {times} to win the game.")
-=======
-print (f"You needed {times} to win the game.")
->>>>>>> cf0cd81f07580a6e782b71c22985a23f5ecddaf8
+
