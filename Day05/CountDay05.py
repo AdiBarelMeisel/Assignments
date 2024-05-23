@@ -12,14 +12,16 @@ def count_file(filename):
         # printing the file's stats
         print(f"The file {filename} has:")
         print(f"{chars} characters")
-        print(f"{len(lines)} lines")
-        print(f"{len(words)} words")
+        print(f"{lines} lines")
+        print(f"{words} words")
 
 def lines_number(text):
-    return text.split('\n')
+    if text=='':
+        return 0
+    return len(text.split('\n'))
 
 def words_number (text):
-    return text.split()
+    return len(text.split())
 
 def chars_number (text):
     return len(text)
