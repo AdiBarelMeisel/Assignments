@@ -15,12 +15,6 @@ def test_words_counter():
     assert CountDay05.words_number("sfsdf sdfsd") == 2
     assert CountDay05.words_number("") == 0
 
-if __name__ == "__main__":
-    test_chars_counter()
-    test_lines_counter()
-    test_words_counter()
-    print("tests succesfully passed")
-
 
 
     
