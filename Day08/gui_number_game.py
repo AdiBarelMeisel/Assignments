@@ -8,25 +8,18 @@ class GuessNumberGame:
         self.root.title("Guess the Number Game")
         self.comp_number = random.randint(1, 20)
         self.times = 0
-
         self.label = tk.Label(root, text="Guess a number between 1-20:")
         self.label.pack()
-
         self.entry = tk.Entry(root)
         self.entry.pack()
-
         self.guess_button = tk.Button(root, text="Guess", command=self.guess_number)
         self.guess_button.pack()
-
         self.restart_button = tk.Button(root, text="Restart", command=self.restart_game)
         self.restart_button.pack()
-
         self.cheat_button = tk.Button(root, text="Show Answer", command=self.show_answer)
         self.cheat_button.pack()
-
         self.exit_button = tk.Button(root, text="Exit", command=root.quit)
         self.exit_button.pack()
-
         self.result_label = tk.Label(root, text="")
         self.result_label.pack()
 
