@@ -14,29 +14,17 @@ def parse_sequence(file_path):
 
 def long_subsequence(seq):
    
-    length = len(seq)
-    dp = [[0] * (length + 1) for _ in range(length + 1)]
+     n = len(seq)
+     longest_seq = ""
+     for i in range(n):
+        for j in range(i + 1, n):
+            temp_length = 0
+            while j + temp_length < n and seq[i + temp_length] == seq[j + temp_length]:
+                temp_length += 1
+            if temp_length > len(longest_seq):
+                longest_seq = seq[i:i + temp_length]
     
-    for i in range(1, length + 1):
-        for j in range(1, length + 1):
-            if seq[i - 1] == seq[j - 1] and i != j:
-                dp[i][j] = 1 + dp[i - 1][j - 1]
-            else:
-                dp[i][j] = max(dp[i][j - 1], dp[i - 1][j])
-    
-    long_seq = ""
-    i, j = length, length
-    while i > 0 and j > 0:
-        if dp[i][j] == dp[i - 1][j - 1] + 1:
-            long_seq = seq[i - 1] + long_seq
-            i -= 1
-            j -= 1
-        elif dp[i][j] == dp[i - 1][j]:
-            i -= 1
-        else:
-            j -= 1
-    
-    return long_seq
+     return longest_seq
 
 def find_palindromic_sequences(seq, min_length=4):
     
@@ -62,7 +50,7 @@ def main():
     parser.add_argument('--min_palindrome_length', type=int, default=4, help="Minimum length of palindromic sequences to find (default: 4)")
     
     args = parser.parse_args()
-    
+   
     sequence = parse_sequence(args.file)
     
     if args.duplicate:
